@@ -1,6 +1,4 @@
-import { useFooterRect } from "@/components/Main";
-import useResizeObserver from "@/hooks/useResizeObserver";
-import useWindowSize from "@/hooks/useWindowSize";
+import useScrollableHeight from "@/hooks/useScrollableHeight";
 import { TFeedTab } from "@/types/ui";
 import { useRef, useState } from "react";
 import FeedHeader from "./Children/FeedHeader";
@@ -9,11 +7,8 @@ import FeedItem from "./Children/FeedItem";
 interface IFeedProps {}
 const Feed: React.FC<IFeedProps> = ({}) => {
   const [activeFeed, setActiveFeed] = useState<TFeedTab>("friends");
-  const { windowHeight } = useWindowSize();
   const containerRef = useRef<HTMLDivElement>(null);
-  const containerRect = useResizeObserver(containerRef);
-  const footerRect = useFooterRect();
-
+  const scrollableHeight = useScrollableHeight(containerRef);
   return (
     <div>
       <FeedHeader activeFeed={activeFeed} setActiveFeed={setActiveFeed} />
@@ -21,10 +16,7 @@ const Feed: React.FC<IFeedProps> = ({}) => {
         <div
           ref={containerRef}
           style={{
-            maxHeight:
-              windowHeight -
-              (footerRect?.height ?? 0) -
-              (containerRect?.top ?? 0),
+            maxHeight: scrollableHeight,
           }}
           className="overflow-auto"
         >

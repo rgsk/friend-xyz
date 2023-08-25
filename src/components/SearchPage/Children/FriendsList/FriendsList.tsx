@@ -1,17 +1,10 @@
-import useScrollableHeight from "@/hooks/useScrollableHeight";
-import { useRef } from "react";
+import ScrollableContainer from "@/components/Common/ScrollableContainer";
 import FriendItem from "./FriendItem";
 
 interface IFriendsListProps {}
 const FriendsList: React.FC<IFriendsListProps> = ({}) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scrollableHeight = useScrollableHeight(containerRef);
   return (
-    <div
-      ref={containerRef}
-      style={{ maxHeight: scrollableHeight }}
-      className="overflow-auto"
-    >
+    <ScrollableContainer>
       <div className="space-y-3">
         {Array(10)
           .fill(0)
@@ -20,7 +13,7 @@ const FriendsList: React.FC<IFriendsListProps> = ({}) => {
           ))}
       </div>
       <div className="mt-3"></div>
-    </div>
+    </ScrollableContainer>
   );
 };
 export default FriendsList;

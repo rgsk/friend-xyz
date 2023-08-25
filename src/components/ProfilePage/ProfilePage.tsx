@@ -1,5 +1,6 @@
 "use client";
 
+import useRefresh from "@/hooks/useRefresh";
 import { useState } from "react";
 import BottomModalSheet from "../Common/BottomModalSheet";
 import Button from "../Common/Button";
@@ -7,12 +8,14 @@ import PageContainer from "../Common/PageContainer";
 import ScrollableContainer from "../Common/ScrollableContainer";
 import TextContent from "../Common/TextContent";
 import FeedItem from "../HomePage/Children/Feed/Children/FeedItem";
-import PurchaseFlow from "../PurchaseFlow/PurchaseFlow";
+import TransactionFlow from "../TransactionFlow/TransactionFlow";
 
 interface IProfilePageProps {}
 const ProfilePage: React.FC<IProfilePageProps> = ({}) => {
   const name = "Sharif Shameen";
   const [tradeSheetActive, setTradeSheetActive] = useState(false);
+  const { refresh: adjustHeight, refreshDep: adjustHeightDep } = useRefresh();
+
   return (
     <PageContainer>
       <div className="flex justify-center">
@@ -64,8 +67,9 @@ const ProfilePage: React.FC<IProfilePageProps> = ({}) => {
       <BottomModalSheet
         isOpen={tradeSheetActive}
         onClose={() => setTradeSheetActive(false)}
+        onOpenEnd={adjustHeight}
       >
-        <PurchaseFlow />
+        <TransactionFlow adjustHeightDep={adjustHeightDep} />
       </BottomModalSheet>
       <div className="mt-5">
         <TextContent element="span" variant="16">

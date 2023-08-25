@@ -36,7 +36,8 @@ interface ITextContentProps extends HTMLAttributes<HTMLElement> {
     | "14"
     | "12"
     | "16"
-    | "22";
+    | "22"
+    | "48";
   text?: string;
   partialTextCompleteLastWord?: boolean;
   partialTextSuffix?: string;
@@ -142,6 +143,10 @@ const TextContent: React.FC<ITextContentProps> = ({
       }
       case "22": {
         className = "text-[22px]";
+        break;
+      }
+      case "48": {
+        className = "text-[48px]";
         break;
       }
     }

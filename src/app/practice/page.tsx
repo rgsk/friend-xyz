@@ -1,9 +1,9 @@
-import { SampleModalSheet } from "@/components/Sample/SampleModalSheet";
+import SampleUseCallRepeatedly from "@/components/Sample/SampleUseCallRepeatedly";
 
 export default function Page() {
   return (
     <div>
-      <SampleModalSheet />
+      <SampleUseCallRepeatedly />
     </div>
   );
 }

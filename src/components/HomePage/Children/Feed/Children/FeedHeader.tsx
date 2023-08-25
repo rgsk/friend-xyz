@@ -1,6 +1,6 @@
 import TextContent from "@/components/Common/TextContent";
+import TextTab from "@/components/Common/TextTab";
 import { TFeedTab } from "@/types/ui";
-import clsx from "clsx";
 import { Dispatch, SetStateAction } from "react";
 
 const allFeedTabs: { type: TFeedTab; label: string }[] = [
@@ -24,7 +24,7 @@ const FeedHeader: React.FC<IFeedHeaderProps> = ({
       </div>
       <div className="space-x-6">
         {allFeedTabs.map(({ label, type }) => (
-          <FeedTab
+          <TextTab
             key={type}
             label={label}
             active={activeFeed === type}
@@ -38,21 +38,3 @@ const FeedHeader: React.FC<IFeedHeaderProps> = ({
   );
 };
 export default FeedHeader;
-
-interface IFeedTabProps {
-  label: string;
-  active?: boolean;
-  onClick: () => void;
-}
-const FeedTab: React.FC<IFeedTabProps> = ({ label, active, onClick }) => {
-  return (
-    <TextContent
-      element="button"
-      variant="16"
-      className={clsx(active ? "text-primary" : "text-base")}
-      onClick={onClick}
-    >
-      {label}
-    </TextContent>
-  );
-};

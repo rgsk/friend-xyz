@@ -1,5 +1,3 @@
-"use client";
-
 import { TTab } from "@/types/ui";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

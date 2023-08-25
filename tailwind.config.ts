@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
 const config: Config = {
   content: [
@@ -16,6 +17,7 @@ const config: Config = {
     },
     colors: {
       primary: "#00FF94",
+      ...colors,
     },
   },
   plugins: [],

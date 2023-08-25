@@ -1,8 +1,7 @@
+import App from "@/components/App";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-import Tabs from "@/components/Tabs/Tabs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +18,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
-        <div>
-          <Tabs />
-        </div>
+        <App>{children}</App>
       </body>
     </html>
   );

@@ -1,9 +1,13 @@
 interface IButtonProps {
   children: any;
+  onClick?: () => void;
 }
-const Button: React.FC<IButtonProps> = ({ children }) => {
+const Button: React.FC<IButtonProps> = ({ children, onClick }) => {
   return (
-    <button className="bg-primary rounded-xl text-black py-2.5 w-full">
+    <button
+      onClick={onClick}
+      className="bg-primary rounded-xl text-black py-2.5 w-full"
+    >
       {children}
     </button>
   );

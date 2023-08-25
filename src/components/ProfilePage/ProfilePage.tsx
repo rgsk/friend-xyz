@@ -1,14 +1,18 @@
 "use client";
 
+import { useState } from "react";
+import BottomModalSheet from "../Common/BottomModalSheet";
 import Button from "../Common/Button";
 import PageContainer from "../Common/PageContainer";
 import ScrollableContainer from "../Common/ScrollableContainer";
 import TextContent from "../Common/TextContent";
 import FeedItem from "../HomePage/Children/Feed/Children/FeedItem";
+import PurchaseFlow from "../PurchaseFlow/PurchaseFlow";
 
 interface IProfilePageProps {}
 const ProfilePage: React.FC<IProfilePageProps> = ({}) => {
   const name = "Sharif Shameen";
+  const [tradeSheetActive, setTradeSheetActive] = useState(false);
   return (
     <PageContainer>
       <div className="flex justify-center">
@@ -49,8 +53,20 @@ const ProfilePage: React.FC<IProfilePageProps> = ({}) => {
         </div>
       </div>
       <div className="mt-5">
-        <Button>trade</Button>
+        <Button
+          onClick={() => {
+            setTradeSheetActive(true);
+          }}
+        >
+          trade
+        </Button>
       </div>
+      <BottomModalSheet
+        isOpen={tradeSheetActive}
+        onClose={() => setTradeSheetActive(false)}
+      >
+        <PurchaseFlow />
+      </BottomModalSheet>
       <div className="mt-5">
         <TextContent element="span" variant="16">
           TRADES ⚡️

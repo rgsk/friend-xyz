@@ -1,3 +1,9 @@
+import { SampleModalSheet } from "@/components/Sample/SampleModalSheet";
+
 export default function Page() {
-  return <div>practice</div>;
+  return (
+    <div>
+      <SampleModalSheet />
+    </div>
+  );
 }

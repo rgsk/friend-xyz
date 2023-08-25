@@ -1,7 +1,5 @@
+import HomePage from "@/components/HomePage/HomePage";
+
 export default async function Page() {
-  return (
-    <div>
-      <p>Hello World!</p>
-    </div>
-  );
+  return <HomePage />;
 }

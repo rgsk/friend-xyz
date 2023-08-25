@@ -1,9 +1,11 @@
+import { useSetupFooterRect } from "@/components/Main";
 import { useSetupWindowSize } from "@/hooks/useWindowSize";
 import { createContext, useContext } from "react";
 
 const useGlobalContextValue = () => {
   const useWindowSizeResult = useSetupWindowSize();
-  return { useWindowSizeResult };
+  const useFooterRectResult = useSetupFooterRect();
+  return { useWindowSizeResult, useFooterRectResult };
 };
 
 const GlobalContext = createContext<ReturnType<

@@ -1,7 +1,9 @@
+import { useSetupWindowSize } from "@/hooks/useWindowSize";
 import { createContext, useContext } from "react";
 
 const useGlobalContextValue = () => {
-  return {};
+  const useWindowSizeResult = useSetupWindowSize();
+  return { useWindowSizeResult };
 };
 
 const GlobalContext = createContext<ReturnType<
